@@ -1,0 +1,30 @@
+{
+  "manifest_version": 2,
+  "name": "Multi Search Context Menu",
+  "version": "1.0",
+  "description": "Search selected text on configurable websites via context menu",
+  "author": "seizu",
+  "homepage_url": "https://github.com/seizu",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "{8f417c2e-91b3-435a-a8e6-3c9d1f2b2e45}"
+    }
+  },
+  "permissions": [
+    "contextMenus",
+    "storage"
+  ],
+  "background": {
+    "scripts": [
+      "background.js"
+    ]
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
+  "icons": {
+    "48": "icon-48.png",
+    "96": "icon.png"
+  }
+}

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Search Context Menu - Settings</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #f5f5f5;
+    }
+
+    h1 { color: #333; border-bottom: 2px solid #0a84ff; padding-bottom: 10px; }
+    h2 { color: #444; margin-top: 30px; }
+
+    .info {
+      background-color: #e3f2fd;
+      border-left: 4px solid #0a84ff;
+      padding: 12px;
+      margin-bottom: 20px;
+      border-radius: 4px;
+    }
+
+    .card {
+      background-color: white;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
+
+    /* Site items */
+    .site-item {
+      display: grid;
+      grid-template-columns: auto 1fr 2fr auto;
+      gap: 10px;
+      align-items: center;
+      padding: 10px;
+      border-bottom: 1px solid #e0e0e0;
+      background-color: #fafafa;
+      margin-bottom: 8px;
+      border-radius: 4px;
+    }
+
+    /* Group items */
+    .group-item {
+      padding: 12px;
+      border: 1px solid #e0e0e0;
+      background-color: #fafafa;
+      margin-bottom: 12px;
+      border-radius: 6px;
+    }
+
+    .group-header {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .group-sites {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 8px;
+      background-color: #f0f0f0;
+      border-radius: 4px;
+    }
+
+    .group-site-checkbox {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      background: white;
+      padding: 4px 8px;
+      border-radius: 4px;
+      border: 1px solid #ddd;
+      font-size: 13px;
+      cursor: pointer;
+    }
+
+    .group-site-checkbox input { cursor: pointer; }
+
+    .group-counter {
+      font-size: 12px;
+      color: #888;
+      margin-top: 6px;
+    }
+
+    .group-counter.limit { color: #d32f2f; }
+
+    input[type="text"] {
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+
+    input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      cursor: pointer;
+    }
+
+    button {
+      padding: 8px 16px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background-color 0.2s;
+    }
+
+    .btn-remove { background-color: #d32f2f; color: white; }
+    .btn-remove:hover { background-color: #b71c1c; }
+
+    .btn-add { background-color: #0a84ff; color: white; margin-top: 12px; }
+    .btn-add:hover { background-color: #0060df; }
+
+    .btn-save {
+      background-color: #4caf50;
+      color: white;
+      margin-top: 20px;
+      padding: 12px 24px;
+      font-size: 16px;
+    }
+    .btn-save:hover { background-color: #45a049; }
+
+    .status {
+      margin-top: 10px;
+      padding: 10px;
+      border-radius: 4px;
+      display: none;
+    }
+    .status.success { background-color: #c8e6c9; color: #2e7d32; display: block; }
+    .status.error { background-color: #ffcdd2; color: #c62828; display: block; }
+  </style>
+</head>
+<body>
+  <h1>🔍 Search Context Menu - Settings</h1>
+
+  <div class="info">
+    <strong>Placeholder:</strong> Use <code>{searchTerm}</code> in the URL for the selected text.
+    <br>Example: <code>https://www.google.com/search?q={searchTerm}</code>
+  </div>
+
+  <!-- Search Sites -->
+  <h2>🔗 Search Sites</h2>
+  <div class="card">
+    <div id="sites-container"></div>
+    <button id="add-site" class="btn-add">+ Add New Search Site</button>
+  </div>
+
+  <!-- Groups -->
+  <h2>🌐 Groups</h2>
+  <div class="card">
+    <div id="groups-container"></div>
+    <button id="add-group" class="btn-add">+ Add New Group</button>
+  </div>
+
+  <button id="save" class="btn-save">💾 Save Settings</button>
+  <div id="status" class="status"></div>
+
+  <script src="options.js"></script>
+</body>
+</html>
