@@ -1,10 +1,11 @@
-# Search Context Menu - Firefox Extension
+# Multi Search Context Menu Plus - Firefox Extension
 
-A Firefox extension that allows you to search selected text on configurable websites via the context menu.
+Search selected or custom text on configurable websites via context menu or hot key.
 
 ## Features
 
 - Right-click on selected text to search on multiple sites
+- Hotkey (Alt+Shift+S) to search custom or selected text
 - Group multiple sites and open them all at once
 - Fully configurable search sites and groups
 - Custom URL patterns with `{searchTerm}` placeholder
@@ -20,6 +21,8 @@ A Firefox extension that allows you to search selected text on configurable webs
 5. Add, edit, or remove groups
 6. Click "Save Settings"
 
+> **Tip:** The hotkey can be changed under `about:addons` → ⚙️ → **"Manage Extension Shortcuts"**
+
 ### URL Pattern
 
 Use `{searchTerm}` as placeholder in the URL where the selected text should be inserted.
@@ -32,6 +35,13 @@ Use `{searchTerm}` as placeholder in the URL where the selected text should be i
 - GitHub: `https://github.com/search?q={searchTerm}`
 
 ## Usage
+
+### Hotkey Search
+1. Press **Alt+Shift+S** on any webpage
+2. A floating popup appears
+3. Enter your search text (or it auto-fills with selected text)
+4. Click on a 🌐 group or individual site
+5. Results open in new tabs
 
 ### Single Site Search
 1. Select any text on a webpage

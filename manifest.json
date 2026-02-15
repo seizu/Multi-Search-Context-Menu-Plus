@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
-  "name": "Multi Search Context Menu",
-  "version": "1.0",
-  "description": "Search selected text on configurable websites via context menu",
+  "name": "Multi Search Context Menu Plus",
+  "version": "1.1",
+  "description": "Search selected or custom text on configurable websites via context menu or hotkey",
   "author": "seizu",
   "homepage_url": "https://github.com/seizu",
   "browser_specific_settings": {
@@ -14,11 +14,26 @@
     "contextMenus",
     "storage"
   ],
+  "commands": {
+    "open-search-popup": {
+      "suggested_key": {
+        "default": "Alt+Shift+S"
+      },
+      "description": "Open search popup"
+    }
+  },
   "background": {
     "scripts": [
       "background.js"
     ]
   },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "css": ["content.css"]
+    }
+  ],
   "options_ui": {
     "page": "options.html",
     "open_in_tab": true

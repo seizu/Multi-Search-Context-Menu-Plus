@@ -75,7 +75,7 @@ browser.contextMenus.onClicked.addListener(async (info, tab) => {
   const sites = searchSites || DEFAULT_SITES;
   const groups = searchGroups || DEFAULT_GROUPS;
 
-  // Handle group click - open all sites in group
+  // Handle group click - open all sites in group simultaneously
   if (info.menuItemId.startsWith("group-")) {
     const index = parseInt(info.menuItemId.split("-")[1]);
     const group = groups[index];
@@ -99,6 +99,48 @@ browser.contextMenus.onClicked.addListener(async (info, tab) => {
     if (site) {
       const searchUrl = site.url.replace("{searchTerm}", encodeURIComponent(info.selectionText));
       browser.tabs.create({ url: searchUrl });
+    }
+  }
+});
+
+// Handle hotkey command - send message to content script to show popup
+browser.commands.onCommand.addListener(async (command) => {
+  if (command === "open-search-popup") {
+    const [tab] = await browser.tabs.query({ active: true, currentWindow: true });
+    if (tab) {
+      browser.tabs.sendMessage(tab.id, { action: "show-search-popup" });
+    }
+  }
+});
+
+// Handle messages from content script (open tabs)
+browser.runtime.onMessage.addListener(async (message) => {
+  const { searchSites } = await browser.storage.local.get("searchSites");
+  const { searchGroups } = await browser.storage.local.get("searchGroups");
+
+  const sites = searchSites || DEFAULT_SITES;
+  const groups = searchGroups || DEFAULT_GROUPS;
+
+  // Open single site search
+  if (message.action === "open-site") {
+    const site = sites[message.siteIndex];
+    if (site) {
+      const searchUrl = site.url.replace("{searchTerm}", encodeURIComponent(message.text));
+      browser.tabs.create({ url: searchUrl });
+    }
+  }
+
+  // Open all sites in group simultaneously
+  if (message.action === "open-group") {
+    const group = groups[message.groupIndex];
+    if (group && group.sites) {
+      group.sites.forEach(siteIndex => {
+        const site = sites[siteIndex];
+        if (site) {
+          const searchUrl = site.url.replace("{searchTerm}", encodeURIComponent(message.text));
+          browser.tabs.create({ url: searchUrl });
+        }
+      });
     }
   }
 });
