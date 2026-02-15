@@ -1,13 +1,16 @@
 {
   "manifest_version": 2,
   "name": "Multi Search Context Menu Plus",
-  "version": "1.2",
+  "version": "1.2.1",
   "description": "Search selected or custom text on configurable websites via context menu or hotkey",
   "author": "seizu",
   "homepage_url": "https://github.com/seizu",
   "browser_specific_settings": {
     "gecko": {
-      "id": "{8f417c2e-91b3-435a-a8e6-3c9d1f2b2e45}"
+      "id": "{8f417c2e-91b3-435a-a8e6-3c9d1f2b2e45}",
+      "data_collection_permissions": {
+        "required": ["none"]
+      }
     }
   },
   "permissions": [
