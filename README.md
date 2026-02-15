@@ -1,6 +1,6 @@
 # Multi Search Context Menu Plus - Firefox Extension
 
-Search selected or custom text on configurable websites via context menu or hot key.
+Search selected or custom text on configurable websites via context menu or hotkey.
 
 ## Features
 
@@ -31,8 +31,6 @@ Use `{searchTerm}` as placeholder in the URL where the selected text should be i
 - Google: `https://www.google.com/search?q={searchTerm}`
 - Wikipedia: `https://en.wikipedia.org/wiki/Special:Search?search={searchTerm}`
 - YouTube: `https://www.youtube.com/results?search_query={searchTerm}`
-- DuckDuckGo: `https://duckduckgo.com/?q={searchTerm}`
-- GitHub: `https://github.com/search?q={searchTerm}`
 
 ## Usage
 
