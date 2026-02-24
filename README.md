@@ -23,6 +23,8 @@ Search selected or custom text on configurable websites via context menu or hotk
 
 > **Tip:** The hotkey can be changed under `about:addons` → ⚙️ → **"Manage Extension Shortcuts"**
 
+![Options Menu](settings.png)
+
 ### URL Pattern
 
 Use `{searchTerm}` as placeholder in the URL where the selected text should be inserted.
@@ -41,6 +43,8 @@ Use `{searchTerm}` as placeholder in the URL where the selected text should be i
 4. Click on a 🌐 group or individual site
 5. Results open in new tabs
 
+![Hotkey Search Dialog](hotkeysearch.png)
+
 ### Single Site Search
 1. Select any text on a webpage
 2. Right-click on the selection
@@ -48,12 +52,16 @@ Use `{searchTerm}` as placeholder in the URL where the selected text should be i
 4. Click on your desired search site
 5. A new tab opens with the search results
 
+![Context Search](contextsearch.png)
+
 ### Group Search
 1. Select any text on a webpage
 2. Right-click on the selection
 3. Navigate to "Search with..." in the context menu
 4. Click on a 🌐 group
 5. All sites in the group open simultaneously in new tabs
+
+
 
 ## Groups
 
